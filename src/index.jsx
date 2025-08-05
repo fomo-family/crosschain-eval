@@ -11,6 +11,16 @@ root.render(
     <PrivyProvider
       appId={import.meta.env.VITE_PRIVY_APP_ID}
       onSuccess={(user) => console.log(`User ${user.id} logged in!`)}
+      config={{
+        embeddedWallets: {
+          ethereum: {
+            createOnLogin: "users-without-wallets",
+          },
+          solana: {
+            createOnLogin: "users-without-wallets",
+          }
+        },
+      }}
     >
       <App />
     </PrivyProvider>
